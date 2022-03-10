@@ -1468,10 +1468,6 @@ body {
   border: 1px solid #46A358;
 }
 
-.product__image-item--active {
-  border: 1px solid #46A358;
-}
-
 .product__title {
   font-weight: bold;
   font-size: 28px;
@@ -1718,6 +1714,10 @@ body {
   font-size: 15px;
   line-height: 107%;
   color: #918383;
+}
+
+.mixitup-control-active {
+  border: 1px solid #46A358;
 }
 
 .descrition {

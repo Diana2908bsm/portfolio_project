@@ -1,97 +1,3 @@
-$(document).ready(function() {
-    $('.header__burger').click(function(event) {
-        $('.header__burger,.header__menu').toggleClass('active');
-        $('body').toggleClass('lock');
-
-    });
-});
-$(function() {
-    $('.main-block__slider').slick({
-        dots: true,
-        arrows: false,
-        fade: true,
-        autoplay: true
-    });
-
-});
-var mixer = mixitup('.product__image', {
-    load: {
-        filter: '.2'
-    }
-});
-$(document).ready(function() {
-        $('.buy__title-link ').click(function(event) {
-            $(this).toggleClass('active').next().slideToggle(300);
-        })
-    }
-
-);
-$(document).ready(function() {
-    $('.number-prev').click(function() {
-        var $input = $(this).parent().find('input');
-        var count = parseInt($input.val()) - 1;
-        count = count < 1 ? 1 : count;
-        $input.val(count);
-        $input.change();
-        return false;
-    });
-    $('.number-next').click(function() {
-        var $input = $(this).parent().find('input');
-        $input.val(parseInt($input.val()) + 1);
-        $input.change();
-        return false;
-    });
-});
-
-$('.releted__column').slick({
-    dots: true,
-    arrows: false,
-    autoplay: true,
-    speed: 300,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    responsive: [{
-            breakpoint: 996,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 575,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-    ]
-
-});
-var mergingTooltipSlider = document.getElementById('price-range');
-
-noUiSlider.create(mergingTooltipSlider, {
-    start: [39, 1230],
-    connect: true,
-    tooltips: [true, true],
-    range: {
-        'min': 39,
-        'max': 1500
-    }
-});
-$(function() {
-    $('.releted__column').slick({
-        dots: true,
-        arrows: false,
-        fade: true,
-        autoplay: true
-    });
-
-});
-//---------------------------------------------------
-
-//-------------popup------------------
 const popupLinks = document.querySelectorAll('.popup-link');
 const body = document.querySelector('body');
 const lockPadding = document.querySelectorAll(".lock-padding");
@@ -215,9 +121,106 @@ document.addEventListener('keydown', function(e) {
             Element.prototype.msMatchesSelector;
     }
 })();
+$(document).ready(function() {
+    $('.header__burger').click(function(event) {
+        $('.header__burger,.header__menu').toggleClass('active');
+        $('body').toggleClass('lock');
 
-//-----------------------------------------
-"use strict"
+    });
+});
+$(function() {
+    $('.main-block__slider').slick({
+        dots: true,
+        arrows: false,
+        fade: true,
+        autoplay: true
+    });
+
+});
+var mixer = mixitup('.product__image', {
+    load: {
+        filter: '.2'
+    }
+});
+$(document).ready(function() {
+        $('.buy__title-link ').click(function(event) {
+            $(this).toggleClass('active').next().slideToggle(300);
+        })
+    }
+
+);
+$(document).ready(function() {
+    $('.number-prev').click(function() {
+        var $input = $(this).parent().find('input');
+        var count = parseInt($input.val()) - 1;
+        count = count < 1 ? 1 : count;
+        $input.val(count);
+        $input.change();
+        return false;
+    });
+    $('.number-next').click(function() {
+        var $input = $(this).parent().find('input');
+        $input.val(parseInt($input.val()) + 1);
+        $input.change();
+        return false;
+    });
+});
+
+$('.releted__column').slick({
+    dots: true,
+    arrows: false,
+    autoplay: true,
+    speed: 300,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    responsive: [{
+            breakpoint: 996,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 575,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ]
+
+});
+var mergingTooltipSlider = document.getElementById('price-range');
+
+noUiSlider.create(mergingTooltipSlider, {
+    start: [39, 1230],
+    connect: true,
+    tooltips: [true, true],
+    range: {
+        'min': 39,
+        'max': 1500
+    }
+});
+$(function() {
+    $('.releted__column').slick({
+        dots: true,
+        arrows: false,
+        fade: true,
+        autoplay: true
+    });
+
+});
+//---------------------------------------------------
+
+// // -------------popup------------------
+
+
+
+
+// //-----------------------------------------
+
 
 // SPOLLERS
 const spollersArray = document.querySelectorAll('[data-spollers]');

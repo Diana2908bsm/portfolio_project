@@ -38,6 +38,12 @@
             height: 240px;
         }
     }
+    .blog-box {
+        &__items {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 }
 
 @media(max-width:1040px) {
