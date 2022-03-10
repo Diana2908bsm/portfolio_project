@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'icon';
+    src: url('../fonts/icon.ttf?t4a1hd') format('truetype'), url('../fonts/icon.woff?t4a1hd') format('woff'), url('../fonts/icon.svg?t4a1hd#icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icon';
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-mail:before {
+    content: "\e904";
+}
+
+._icon-th-menu:before {
+    content: "\e905";
+}
+
+._icon-trash:before {
+    content: "\e90f";
+}
+
+._icon-location-outline:before {
+    content: "\e90b";
+}
+
+._icon-phone-outline:before {
+    content: "\e910";
+}
+
+._icon-Arrow-Right:before {
+    content: "\e900";
+}
+
+._icon-arrow:before {
+    content: "\e901";
+}
+
+._icon-arrow-min:before {
+    content: "\e902";
+}
+
+._icon-basket:before {
+    content: "\e903";
+}
+
+._icon-enter:before {
+    content: "\e906";
+}
+
+._icon-Facebook:before {
+    content: "\e907";
+}
+
+._icon-favorite:before {
+    content: "\e908";
+}
+
+._icon-Instagram:before {
+    content: "\e909";
+}
+
+._icon-Linkedin:before {
+    content: "\e90a";
+}
+
+._icon-search:before {
+    content: "\e90d";
+}
+
+._icon-Twitter:before {
+    content: "\e90e";
+}

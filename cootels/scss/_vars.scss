@@ -1,0 +1,10 @@
+ $title: #192252;
+ $default:#5a5a5a;
+ %title {
+     font-family: 'Montserrat';
+     font-weight: 600;
+     @include adaptiv-value("font-size", 36, 22, 0);
+     line-height: 150%;
+     letter-spacing: -0.01em;
+     color: #192252;
+ }

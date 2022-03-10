@@ -1,0 +1,556 @@
+@import'null';
+@import'vars';
+$maxWidth: 1920;
+$maxWidthContainer: 1240;
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+    $addSize: $startSize - $minSize;
+    @if $type==1 {
+        //Только если меньше контейнера
+        #{$property}: $startSize + px;
+        @media (max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+        }
+    }
+    @else if $type==2 {
+        //Только если больше контейнера
+        #{$property}: $startSize + px;
+        @media (min-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+        }
+    }
+    @else {
+        //Всегда
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
+._container {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+._container-fluid {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+//------------------header---------------------------------------
+.header {
+    &__container {}
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 120px;
+    }
+    &__logo {
+        flex: 0 0 123px;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 39px;
+        color: #192252;
+    }
+    &__menu {}
+    &__list {
+        display: flex;
+    }
+    &__link {
+        margin-right: 30px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        transition: all 0.3s ease 0s;
+        color: #192252;
+        &:hover {
+            font-weight: 600;
+        }
+        &:active {
+            font-weight: 600;
+        }
+    }
+    &__item {}
+    &__button {}
+    &__btn {
+        background: #0E1734;
+        border-radius: 4px;
+        color: #fff;
+        padding: 14px 16px;
+        width: 121px;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        transition: all 0.3s ease 0s;
+        &:hover {
+            background: #1f316e;
+        }
+    }
+}
+
+//--------------main-block------------------------
+.main-block {
+    @include adaptiv-value("margin-bottom", 96, 10, 0);
+    @include adaptiv-value("margin-top", 80, 10, 0);
+    &__container {}
+    &__inner {
+        display: flex;
+        @include adaptiv-value(" gap", 24, 10, 0);
+    }
+    &__box {
+        @include adaptiv-value(" margin-top", 135, 0, 0);
+    }
+    &__title {
+        font-family: Montserrat;
+        font-weight: 600;
+        @include adaptiv-value(" font-size", 48, 24, 0);
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: #192252;
+        @include adaptiv-value(" margin-bottom", 24, 15, 0);
+    }
+    &__text {
+        @include adaptiv-value(" margin-bottom", 32, 20, 0);
+        width: 400px;
+        @include adaptiv-value(" font-size", 18, 12, 0);
+    }
+    &__button {}
+    &__btn {
+        background: #0E1734;
+        border-radius: 4px;
+        color: #fff;
+        padding: 14px 32px;
+        width: 156px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        transition: all 0.3s ease 0s;
+        &:hover {
+            background: #1f316e;
+        }
+    }
+    &__image {}
+    &__img {}
+}
+
+//--------------------------------------------------------------------
+.hotel {
+    @include adaptiv-value(" margin-top", 80, 40, 0);
+    @include adaptiv-value(" margin-bottom", 80, 40, 0);
+    &__container {}
+    &__inner {
+        display: flex;
+        @include adaptiv-value("gap", 126, 0, 0);
+    }
+    &__img {}
+    &__box {
+        @include adaptiv-value(" margin-top", 95, 0, 0);
+        margin-bottom: 20px;
+    }
+    &__title {
+        @extend %title;
+        margin-bottom: 24px;
+    }
+    &__text {
+        @include adaptiv-value("font-size", 18, 12, 0);
+        @include adaptiv-value(" margin-bottom", 32, 17, 0);
+    }
+    &__button {}
+    &__btn {
+        background: #0E1734;
+        border-radius: 4px;
+        color: #fff;
+        padding: 14px 32px;
+        width: 156px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        transition: all 0.3s ease 0s;
+        &:hover {
+            background: #1f316e;
+        }
+    }
+}
+
+//----------------------------------------------------------
+.offer {
+    @include adaptiv-value(" margin-top", 80, 0, 0);
+    @include adaptiv-value(" margin-bottom", 80, 20, 0);
+    &__container {}
+    &__column {
+        display: flex;
+        @include adaptiv-value(" gap", 126, 0, 0);
+    }
+    &__box {
+        @include adaptiv-value(" margin-top", 115, 0, 0);
+    }
+    &__title {
+        @extend %title;
+        margin-bottom: 24px;
+    }
+    &__text {
+        @include adaptiv-value("font-size", 18, 12, 0);
+        margin-bottom: 10px;
+    }
+    &__img {
+        margin-bottom: 32px;
+    }
+}
+
+//------------------------------------------------------------
+.footer {
+    @include adaptiv-value("padding-top", 120, 20, 0);
+    @include adaptiv-value("padding-bottom", 100, 30, 0);
+    background: #0B265A;
+    color: #fff;
+    &__container {}
+    &__column {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__box-column {
+        display: flex;
+        @include adaptiv-value("gap", 100, 0, 0);
+    }
+    &__logo {
+        font-family: Montserrat;
+        font-weight: bold;
+        @include adaptiv-value("font-size", 32, 24, 0);
+        line-height: 39px;
+        letter-spacing: -0.01em;
+        color: #FFFFFF;
+        margin-bottom: 13px;
+    }
+    &__text {
+        font-size: 16px;
+        line-height: 175%;
+        color: #D9DBDE;
+        width: 186px;
+        margin-bottom: 36px;
+    }
+    &__icon {
+        display: flex;
+        gap: 24px;
+    }
+    &__icon-link {
+        width: 32px;
+        height: 32px;
+    }
+    &__icon-link--twi {
+        background-image: url(../img/twitter.svg);
+    }
+    &__icon-link--inst {
+        background-image: url(../img/inst.svg);
+    }
+    &__icon-link--facebook {
+        background-image: url(../img/facebook.svg);
+    }
+    &__list {}
+    &__button {
+        background: inherit;
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.01em;
+        margin-bottom: 24px;
+    }
+    &__l {
+        margin-bottom: 24px;
+    }
+    &__link {
+        font-size: 16px;
+        line-height: 19px;
+        color: #D9DBDE;
+        transform: all 0.3s ease 0s;
+        &:hover {
+            text-decoration: underline
+        }
+    }
+}
+
+//-----------------------------------------------------------------------
+.rooms {
+    @include adaptiv-value("padding-bottom", 80, 10, 0);
+    @include adaptiv-value("padding-top", 80, 10, 0);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    &__container {}
+    &__title {
+        @extend %title;
+        text-align: center;
+        @include adaptiv-value("margin-bottom", 24, 10, 0);
+    }
+    &__text {
+        color: #848FAC;
+        @include adaptiv-value("font-size", 18, 12, 0);
+        @include adaptiv-value("width", 588, 300, 0);
+        margin: 0 auto;
+        @include adaptiv-value("margin-bottom", 32, 20, 0);
+    }
+    &__button {
+        margin-bottom: 15px;
+    }
+    &__btn {
+        background: #0E1734;
+        border-radius: 4px;
+        color: #fff;
+        padding: 14px 32px;
+        width: 156px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        transition: all 0.3s ease 0s;
+        &:hover {
+            background: #1f316e;
+        }
+    }
+}
+
+//-----------------------------------------------------------
+.choose {
+    @include adaptiv-value("padding-bottom", 80, 20, 0);
+    &__container {}
+    &__column {
+        display: flex;
+        gap: 24px;
+    }
+    &__item {}
+    &__img {}
+    &__image {
+        @include adaptiv-value("margin-bottom", 32, 15, 0);
+        ;
+        @include adaptiv-value("width", 384, 250, 0);
+    }
+    &__t {
+        @include adaptiv-value("margin-bottom", 16, 5, 0);
+    }
+    &__title {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        @include adaptiv-value("font-size", 24, 18, 0);
+        line-height: 150%;
+        color: #000000;
+    }
+    &__text {
+        @include adaptiv-value("margin-bottom", 32, 15, 0);
+        @include adaptiv-value("font-size", 18, 12, 0);
+    }
+    &__button {
+        color: #424F7B;
+        position: relative;
+        transition: all 0.3s ease 0s;
+        &:before {
+            content: "";
+            position: absolute;
+            background: url(../img/Vector.svg);
+            width: 18px;
+            height: 14px;
+            right: -20px;
+            bottom: 10%;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+//-----------------------------------------------------------------------
+.explore {
+    @include adaptiv-value("padding-bottom", 80, 20, 0);
+    @include adaptiv-value("padding-top", 80, 20, 0);
+    &__container {}
+    &__inner {
+        display: flex;
+        @include adaptiv-value("gap", 180, 18, 0);
+    }
+    &__box {
+        @include adaptiv-value("padding-top", 100, 0, 0);
+        @include adaptiv-value("width", 407, 300, 0);
+    }
+    &__subtitle {
+        font-weight: 500;
+        font-size: 16px;
+        @include adaptiv-value("font-size", 16, 12, 0);
+        line-height: 150%;
+        color: #424F7B;
+        margin-bottom: 12px;
+    }
+    &__title {
+        @extend %title;
+        margin-bottom: 24px;
+    }
+    &__text {
+        @include adaptiv-value("font-size", 16, 12, 0);
+        @include adaptiv-value("margin-bottom", 32, 15, 0);
+    }
+    &__buttons {
+        display: flex;
+        @include adaptiv-value("gap", 24, 15, 0);
+    }
+    &__btn {
+        border-radius: 4px;
+        padding: 14px 32px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        font-weight: 500;
+        font-size: 16px;
+        @include adaptiv-value("font-size", 16, 12, 0);
+        line-height: 19px;
+        transition: all 0.3s ease 0s;
+    }
+    &__btn--blue {
+        background: #0E1734;
+        color: #fff;
+        &:hover {
+            color: #0E1734;
+            background-color: #fff;
+        }
+    }
+    &__btn--white {
+        color: #0E1734;
+        &:hover {
+            background: #0E1734;
+            color: #fff;
+        }
+    }
+    &__swiper {
+        @include adaptiv-value("width", 530, 350, 0);
+        padding: 15px;
+        box-shadow: 0 14px 28px rgba(105, 104, 104, 0.25), 0 10px 10px rgba(155, 153, 153, 0.22);
+        margin-bottom: 24px;
+    }
+    &__item {
+        background: #FFFFFF;
+        @include adaptiv-value("padding-top", 30, 0, 0);
+        border-radius: 4px;
+        @include adaptiv-value("margin-bottom", 24, 16, 0);
+    }
+    &__swiper-text {
+        @include adaptiv-value("margin-bottom", 24, 16, 0);
+        @include adaptiv-value("font-size", 18, 12, 0);
+    }
+}
+
+.explore__swiper-title {
+    @include adaptiv-value("font-size", 24, 16, 0);
+    width: 100%;
+    text-align: left;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 150%;
+    color: #424F7B;
+    background-color: transparent;
+    padding: 10px;
+    position: relative;
+}
+
+.explore__item._init .explore__swiper-title {
+    &::before,
+    &::after {
+        content: '';
+        width: 12px;
+        height: 2px;
+        background-color: #FF620A;
+        position: absolute;
+        top: 25px;
+        transition: all .3s ease 0s;
+    }
+    &::before {
+        transform: rotate(40deg);
+        right: 8px;
+    }
+    &::after {
+        transform: rotate(-40deg);
+        right: 0px;
+    }
+}
+
+.explore__item._init .explore__swiper-title._active {
+    &::before {
+        transform: rotate(-40deg);
+    }
+}
+
+.explore__item._init .explore__swiper-title._active {
+    &::after {
+        transform: rotate(40deg);
+    }
+}
+
+//------------------------------------------------
+.customers {
+    @include adaptiv-value("padding-bottom", 80, 20, 0);
+    @include adaptiv-value("padding-top", 80, 20, 0);
+    text-align: center;
+    &__container {}
+    &__title {
+        @extend %title;
+        @include adaptiv-value("margin-bottom", 62, 20, 0);
+    }
+    &__slider {}
+    &__item {}
+    &__column {}
+    &__image {
+        margin: 0 auto;
+        @include adaptiv-value("margin-bottom", 44, 20, 0);
+    }
+    &__text {
+        @include adaptiv-value("font-size", 18, 14, 0);
+        @include adaptiv-value("margin-bottom", 40, 20, 0);
+    }
+    &__name {
+        font-size: 20px;
+        @include adaptiv-value("font-size", 20, 14, 0);
+        line-height: 150%;
+        text-align: center;
+        color: #192252;
+    }
+}
+
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+        margin: 0 8px;
+    }
+    li.slick-active {
+        button {
+            background-color: #FAB047;
+            width: 12px;
+            height: 12px;
+        }
+    }
+    button {
+        background-color: rgba(250, 176, 71, 0.35);
+        border: none;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        padding: 0;
+        font-size: 0;
+    }
+}
+
+@import'media';
